@@ -1,0 +1,13 @@
+author: mkPriv - phamminhquang
+--------------------------------------
+put on the program
+	Uses recognition;
+
+function & procedure:
+	function recognizer_listen(index: ansistring): ansistring;
+	index = string[]var --> text of listen will write in var
+	index = system[]file --> text of listen will write in file outtext.txt
+	
+	procedure recognizer_speak(datastring: ansistring);
+	datastring = system[]file --> speak text of file outtext.txt
+	else --> speak datastring
