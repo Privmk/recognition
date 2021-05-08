@@ -4,10 +4,41 @@ put on the program
 	Uses recognition;
 
 function & procedure:
+	
+	procedure init_r(path: ansistring);
+	path: path to the directory containing the library (folder "recognition")
+
 	function recognizer_listen(index: ansistring): ansistring;
-	index = string[]var --> text of listen will write in var
-	index = system[]file --> text of listen will write in file outtext.txt
+	index = 'string[]var' --> text of listen will write in var
+	index = 'system[]file' --> text of listen will write in file outtext.txt
 	
 	procedure recognizer_speak(datastring: ansistring);
 	datastring = system[]file --> speak text of file outtext.txt
-	else --> speak datastring
+	else (datastring='') --> speak datastring
+
+	procedure end_r;
+	ends up using voice recognition
+	
+Example 1:
+	
+	Uses recognition;
+	Begin
+		init_r('D:\recognition');
+		recognizer_listen('string[]var'); // text of listen will write in var
+		recognizer_speak(''); // speak text of file outtext.txt
+		end_r;
+	End.
+
+Example 2:
+	Uses recognition;
+	Var result: ansistring;
+	Begin
+		init_r('D:\recognition');
+		result:= recognizer_listen('system[]file'); // text of listen will write in file outtext.txt in unit
+		recognizer_speak(result); // speak result value
+		end_r;
+	End.
+
+For more information: 
+ Gmail: phamquang22314@gmail.com
+ FB: https://www.facebook.com/privmk2311
